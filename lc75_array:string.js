@@ -65,21 +65,64 @@
 // Question 1071: Greatest Common Divisor 
 // review 
 
-var gcdOfStrings = function(str1, str2) {
+// var gcdOfStrings = function(str1, str2) {
 
-    if (str1 + str2 !== str2 + str1) {
-        return console.log("No pattern");
-    } else if (str1 == str2) {
-        return console.log(str1);
-    } else if (str1.length > str2.length) {
-        return console.log(str1.substring(str2.length));
-    }
-};
+//     if (str1 + str2 !== str2 + str1) {
+//         return console.log("No pattern");
+//     } else if (str1 == str2) {
+//         return console.log(str1);
+//     } else if (str1.length > str2.length) {
+//         return console.log(str1.substring(str2.length));
+//     }
+// };
 
 
-gcdOfStrings("ABCABC", "ABC");
-gcdOfStrings("ABABAB", "ABAB");
-gcdOfStrings("LEET", "CODE");
+// gcdOfStrings("ABCABC", "ABC");
+// gcdOfStrings("ABABAB", "ABAB");
+// gcdOfStrings("LEET", "CODE");
 
 // ***************************************
 
+// Question 1431: Kids with the Greatest Number of Candies 
+
+// version with loop to find max number-need to fix for kidsWithCandies([2,8,7], 1); cases
+
+// var kidsWithCandies = function(candies, extraCandies) {
+//     let greatestNumber = "";
+//     let result = [];
+
+//     for (let i = 0; i < candies.length; i++) {
+//         if(candies[i] > greatestNumber) {
+//             greatestNumber = candies[i];
+//             console.log(greatestNumber);
+//         } if(candies[i] + extraCandies < greatestNumber) {
+//                 result.push(false);
+//             } else {
+//                  result.push(true);
+//                 }
+        
+//     }
+//     return console.log(result);
+// };
+
+// kidsWithCandies([2,3,5,1,3], 3);
+// kidsWithCandies([4,2,1,1,2], 1);
+// kidsWithCandies([12,1,12],10);
+// kidsWithCandies([2,8,7], 1);
+
+// **** alternate answer using Math.max NOTE: need to use spread (elipse/...) when passing an array of numbers
+
+var kidsWithCandies = function(candies, extraCandies) {
+    let result = [];
+
+    for (let i = 0; i < candies.length; i++) {
+       if(candies[i] + extraCandies < Math.max(...candies)) {
+                result.push(false);
+            } else {
+                 result.push(true);
+                }
+    }
+    return console.log(result);
+};
+
+kidsWithCandies([2,8,7], 1);
