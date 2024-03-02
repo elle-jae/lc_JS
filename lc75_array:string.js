@@ -112,17 +112,50 @@
 
 // **** alternate answer using Math.max NOTE: need to use spread (elipse/...) when passing an array of numbers
 
-var kidsWithCandies = function(candies, extraCandies) {
-    let result = [];
+// var kidsWithCandies = function(candies, extraCandies) {
+//     let result = [];
 
-    for (let i = 0; i < candies.length; i++) {
-       if(candies[i] + extraCandies < Math.max(...candies)) {
-                result.push(false);
-            } else {
-                 result.push(true);
-                }
-    }
-    return console.log(result);
+//     for (let i = 0; i < candies.length; i++) {
+//        if(candies[i] + extraCandies < Math.max(...candies)) {
+//                 result.push(false);
+//             } else {
+//                  result.push(true);
+//                 }
+//     }
+//     return console.log(result);
+// };
+
+// kidsWithCandies([2,8,7], 1);
+
+// *******************************
+// Question 605 Can Place Flowers
+
+// /**
+//  * @param {number[]} flowerbed
+//  * @param {number} n
+//  * @return {boolean}
+//  */
+
+var canPlaceFlowers = function(flowerbed, n) {
+let flowerCounter = 0;
+let i =0;
+
+while (i < flowerbed.length) {
+      
+    if (flowerbed[i] == 0 && flowerbed[i +1] !== 1 && flowerbed[i -1] !== 1) {
+        flowerbed[i] = 1;
+        console.log(flowerbed);
+        flowerCounter++;
+        console.log(flowerCounter);
+    
+}
+i++;
+}  if (flowerCounter < n) {
+    return console.log("false"); 
+} else {
+   return console.log("true");
+}
 };
 
-kidsWithCandies([2,8,7], 1);
+
+canPlaceFlowers([1,0,0,0,1], n=1);
