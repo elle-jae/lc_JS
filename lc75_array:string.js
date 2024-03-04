@@ -136,26 +136,59 @@
 //  * @return {boolean}
 //  */
 
-var canPlaceFlowers = function(flowerbed, n) {
-let flowerCounter = 0;
-let i =0;
+// var canPlaceFlowers = function(flowerbed, n) {
+// let flowerCounter = 0;
+// let i =0;
 
-while (i < flowerbed.length) {
+// while (i < flowerbed.length) {
       
-    if (flowerbed[i] == 0 && flowerbed[i +1] !== 1 && flowerbed[i -1] !== 1) {
-        flowerbed[i] = 1;
-        console.log(flowerbed);
-        flowerCounter++;
-        console.log(flowerCounter);
+//     if (flowerbed[i] == 0 && flowerbed[i +1] !== 1 && flowerbed[i -1] !== 1) {
+//         flowerbed[i] = 1;
+//         console.log(flowerbed);
+//         flowerCounter++;
+//         console.log(flowerCounter);
     
+// }
+// i++;
+// }  if (flowerCounter < n) {
+//     return console.log("false"); 
+// } else {
+//    return console.log("true");
+// }
+// };
+
+
+// canPlaceFlowers([1,0,0,0,1], n=1);
+
+// *******************************
+// Question: 345: Reverse Vowels of a String 
+
+var reverseVowels = function(s) {
+    let vowels = ["a", "e", "i", "o", "u"];
+    let collectedVowels = [];
+    s = s.toLowerCase().split("");
+    let newWord = [];
+
+    console.log(s);
+
+    for(let i = 0; i < s.length; i++) {
+        for (let j = 0; j < vowels.length; j++) {
+            if(s[i].includes(vowels[j])){
+                collectedVowels.push(vowels[j]);
+                console.log(collectedVowels);
+            }
+    }
 }
-i++;
-}  if (flowerCounter < n) {
-    return console.log("false"); 
-} else {
-   return console.log("true");
-}
+
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] == "a" || s[i] == "e" || s[i] == "i" || s[i] == "o" || s[i] == "u"){
+            newWord.push(collectedVowels.pop());
+        } else 
+        newWord.push(s[i]);
+    }
+    console.log(newWord);
 };
 
 
-canPlaceFlowers([1,0,0,0,1], n=1);
+reverseVowels("hello");
+
